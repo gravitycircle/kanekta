@@ -95,7 +95,24 @@
 								}
 								else{
 									fetch.post(constants.base+'php/save.php?check=1', submission.data).then(function(resp){
-										console.log(resp);
+										if(resp.data == 'passed') {
+											modal.showmodal('Registration Successful', 'We have received your submission. You will receive emails about the latest updates about Kanekta. Thank you for your interest!', 'Close', function(){
+												submission.reset();
+												$('.copy-sizer').removeClass('squelch');
+												$('.form-sizer').addClass('squelch');
+												$('.submitbtn').html(txt);
+												$scope.regstate = false;
+											}, function(){
+
+											});
+										}
+										else{
+											modal.showmodal('Submission Failed', 'We are experiencing some technical difficulties. We are not able to take in submissions right now. Please try again later. Apologies for the inconvenience.', 'Close', function(){
+												submission.reset();
+											}, function(){
+
+											});
+										}
 									}, function(){
 										modal.showmodal('Submission Failed', 'We are experiencing some technical difficulties. We are not able to take in submissions right now. Please try again later. Apologies for the inconvenience.', 'Close', function(){
 											submission.reset();

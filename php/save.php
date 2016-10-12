@@ -3,12 +3,20 @@ if(isset($_GET['check'])){
 	include_once('../config.php');
 
 	$input = json_decode(file_get_contents("php://input"), true);
-	$writer = file_get_contents(BASE.'output/mails.txt');
-	foreach($input as $ind => $val) {
-		$writer .= str_replace('-', ' ', ucwords($ind)).': '.$val."\r\n";
+	$writer = '';
+
+	if(file_exists(DOCROOT.'/output/mails.txt')){
+		$writer = file_get_contents(DOCROOT.'/output/mails.txt');
 	}
+
+	$writer .= '<tr>
+		<td>'.date('F d, Y', strtotime('now')).'</td>
+		<td>'.$input['name'].'</td>
+		<td>'.$input['email'].'</td>
+	</tr>';
+	
 	$writer .= "\r\n";
-	if(!file_exists(DOCROOT.'/output/mails.txt')){
+	if(file_put_contents(DOCROOT.'/output/mails.txt', $writer) === false){
 		echo 'failed';
 	}
 	else{
