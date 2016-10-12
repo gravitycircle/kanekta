@@ -148,9 +148,7 @@
 					}
 				}
 
-				$('.field-text input').val('');
-				$('.field-dropdown .selected').html('');
-				$('.field-checkbox label').removeClass('check');
+				$('input').val('');
 			},
 			secure : function(pass, fail, technical, guid){
 				var o = this;

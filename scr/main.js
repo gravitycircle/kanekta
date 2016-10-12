@@ -9,7 +9,7 @@
 		
 	}]);
 
-	app.directive('body', ['$compile', '$window', '$timeout', '$location', 'features', 'sources', 'constants', 'email', 'modal', 'submission', function($compile, $window, $timeout, $location, features, sources, constants, email, modal, submission){
+	app.directive('body', ['$compile', '$window', '$timeout', '$location', 'features', 'sources', 'constants', 'email', 'modal', 'submission', 'fetch', function($compile, $window, $timeout, $location, features, sources, constants, email, modal, submission, fetch){
 		return{
 			restrict: 'E',
 			templateUrl: 'shadow/main.html',
@@ -69,7 +69,49 @@
 
 					if($scope.regstate) {
 						//register
+						var err = [];
+						var pass = [];
+						for(var g in submission.data) {
+							if(submission.data[g] === false) {
+								err.push(g);
+							}
+						}
 						
+						if(err.length > 0) {
+							modal.showmodal('Submission Failed', 'There was an error in your submission. All fields have to be filled in correctly.', 'Close', function(){
+
+							}, function(){
+
+							});
+						}
+						else{
+							fetch.secured(constants.base+'php/verify-shortcut.php?check='+submission.data.email).then(function(resp){
+								if(resp.data == 'fail') {
+									modal.showmodal('Submission Failed', 'Please provide a valid email address on the Email Address field.', 'Close', function(){
+
+									}, function(){
+
+									});
+								}
+								else{
+									fetch.post(constants.base+'php/save.php?check=1', submission.data).then(function(resp){
+										console.log(resp);
+									}, function(){
+										modal.showmodal('Submission Failed', 'We are experiencing some technical difficulties. We are not able to take in submissions right now. Please try again later. Apologies for the inconvenience.', 'Close', function(){
+											submission.reset();
+										}, function(){
+
+										});
+									});
+								}
+							}, function(){
+								modal.showmodal('Submission Failed', 'We are experiencing some technical difficulties. We are not able to take in submissions right now. Please try again later. Apologies for the inconvenience.', 'Close', function(){
+									submission.reset();
+								}, function(){
+
+								});
+							});
+						}
 					}
 					else{
 						$('.copy-sizer').addClass('squelch');

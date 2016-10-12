@@ -24,7 +24,6 @@
 	font-family: 'freight-sans-pro', sans-serif;
 	@include zoom(font-size, 2.1rem);
 	letter-spacing: 0.1em;
-	text-transform: uppercase;
 	font-weight: 400;
 	@include breakpoint(max, 2) {
 		font-size: 1.6rem;
