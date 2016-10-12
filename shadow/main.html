@@ -1,0 +1,34 @@
+<div id="wrapper">
+	<div class="contain">
+		<div class="kanekta-img">
+			<div class="letters">
+				<img ng-src="{{r}}" ng-repeat="r in logo track by $index" ng-class="['characters', 'l-'+$index, 'pre']">
+			</div>
+		</div>
+		<div class="intro-sizer squelch">
+			<div class="introduction">
+				<div class="copy-sizer">
+					<div class="copy">
+						<p>
+							Kanekta is an agency representing ethical brands from across the globe within the Canadian apparel industry. By connecting and managing the relationship between producers and Canadian retailers, we aim to increase the availability of ethically-sourced products in the mainstream market.
+						</p>
+						<p>
+							We are working hard on our launch. To know about the latest news, updates and all things Kanekta, please sign up below!
+						</p>
+					</div>
+				</div>
+				<div class="form-sizer squelch">
+					<div class="form">
+						<field ng-repeat="f in fields track by $index" ng-attr-index="{{$index}}"></field>
+					</div>
+				</div>
+				<p class="sign-up-button">
+					<a ng-click="openRegister()" class="submitbtn">Sign Up</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="preloader">
+	
+</div>

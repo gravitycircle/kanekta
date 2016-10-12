@@ -1,0 +1,222 @@
+html{
+	body{
+		@include dimensions(100%);
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-image: url('../img/all/escheresque_ste.png');
+		background-repeat: repeat;
+
+		#wrapper{
+			@include dimensions(100%);
+			position: absolute;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+
+			.contain{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				@include prefix(transform, translate(-50%, -50%));
+				@include breakpoint(max, 2) {
+					@include orientation(portrait, agnostic) {
+						width: 80%;
+					}
+					@include orientation(landscape, agnostic) {
+						width: 60%;
+					}
+				}
+
+				@include breakpoint(min, 3) {
+					width: 50%;
+				}
+
+				.kanekta-img{
+					width: 100%;
+					padding-bottom: 14%;
+					position: relative;
+
+					.letters{
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						position: absolute;
+						.characters{
+							height: 100%;
+							display: inline-block;
+							width: auto;
+							@include transition(opacity, transform);
+							@include timing(cubic-bezier(0.215, 0.61, 0.355, 1));
+							@include duration(2.8s);
+
+							&.pre{
+								opacity: 0;
+							}
+
+							&.l-0{
+								&.pre{
+									@include prefix(transform, translateX(100%));
+								}
+							}
+
+							&.l-1{
+								margin-left: 4.35%;
+								&.pre{
+									@include prefix(transform, translateX(50%));
+								}
+							}
+
+							&.l-2{
+								margin-left: 4.45%;
+								&.pre{
+									@include prefix(transform, translateX(20%));
+								}
+							}
+							&.l-3{
+								margin-left: 4.45%;
+								&.pre{
+									@include prefix(transform, translateX(-10%));
+								}
+							}
+							&.l-4{
+								margin-left: 4.45%;
+								&.pre{
+									@include prefix(transform, translateX(-20%));
+								}
+							}
+							&.l-5{
+								margin-left: 3.7%;
+								&.pre{
+									@include prefix(transform, translateX(-50%));
+								}
+							}
+							&.l-6{
+								margin-left: 4.45%;
+								&.pre{
+									@include prefix(transform, translateX(-100%));
+								}
+							}
+						}
+					}
+				}
+
+				.intro-sizer{
+					overflow: hidden;
+					@include transition(height);
+					@include duration(1.6s);
+					@include timing(cubic-bezier(0.215, 0.61, 0.355, 1));
+					&.squelch{
+						height: 0 !important;
+					}
+
+					.introduction{
+						width: 70%;
+						margin: auto;
+						@include zoom(padding-top, 4rem);
+
+						p{
+							@include bodyCopy();
+							color: $black;
+							margin: 0;
+							padding-top: 1.5rem;
+							padding-bottom: 1.5rem;
+
+							&.sign-up-button{
+								text-align: center;
+								a{
+									display: inline-block;
+									border: 2px solid $accent;
+									@include buttonText();
+									color: $accent;
+									@include zoom(padding-left, 2rem);
+									@include zoom(padding-right, 2rem);
+									border-radius: 5px;
+
+									@include transition(color, background);
+									@include timing(snap);
+									@include duration(0.6s);
+									cursor: pointer;
+
+									&:hover, &:active, &:focus{
+										background: $accent;
+										text-decoration: none;
+										color: $white;
+									}
+								}
+							}
+						}
+
+						.copy-sizer{
+							overflow: hidden;
+							@include transition(height);
+							@include duration(0.4s);
+							@include timing(snap);
+							&.squelch{
+								height: 0 !important;
+							}
+						}
+
+						.form-sizer{
+							overflow: hidden;
+							@include transition(height);
+							@include duration(0.4s);
+							@include timing(snap);
+							&.squelch{
+								height: 0 !important;
+							}
+							.form{
+								.field-container{
+									width: 100%;
+									@include zoom(padding-top, 2rem);
+									@include zoom(padding-bottom, 2rem);
+									label{
+										display: block;
+										color: $black;
+										text-transform: uppercase;
+										@include buttonText();
+									}
+
+									input{
+										width: 100%;
+										border: none;
+										@include inputText();
+										padding: 0 1rem;
+										border-bottom: 1px solid $black;
+										color: rgba($black, 0.7);
+										background: transparent;
+
+										&:focus{
+											outline: none;
+											color: $accent;
+											box-shadow: none;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+				
+		}
+
+		#preloader{
+			@include upScale(width, 10px, 20px, 30px, 40px, 50px, 60px, 70px);
+			@include orientation(landscape) {
+				height: 10px;
+			}
+
+			@include orientation(portrait) {
+				height: 20px;
+			}
+			position: absolute;
+			top: 100%;
+			left: 100%;
+		}
+	}
+}
