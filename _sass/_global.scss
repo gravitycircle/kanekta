@@ -16,12 +16,26 @@ html{
 			top: 0;
 			left: 0;
 			overflow: hidden;
+			text-align: center;
+
+			@include breakpoint(max, 2) {
+				overflow-y: scroll;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			&::before{
+				content: '';
+				height: 100%;
+				display: inline-block;
+				vertical-align: middle;
+			}
 
 			.contain{
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				@include prefix(transform, translate(-50%, -50%));
+				position: relative;
+				display: inline-block;
+				vertical-align: middle;
+				padding-top: 4rem;
+				padding-bottom: 4rem;
 				@include breakpoint(max, 2) {
 					@include orientation(portrait, agnostic) {
 						width: 80%;
@@ -46,6 +60,7 @@ html{
 						top: 0;
 						left: 0;
 						position: absolute;
+						white-space: nowrap;
 						.characters{
 							height: 100%;
 							display: inline-block;
@@ -115,9 +130,12 @@ html{
 					}
 
 					.introduction{
-						width: 70%;
+						
 						margin: auto;
 						@include zoom(padding-top, 4rem);
+						@include breakpoint(min, 4) {
+							width: 70%;
+						}
 
 						p{
 							@include bodyCopy();
