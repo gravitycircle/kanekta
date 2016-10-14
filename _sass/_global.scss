@@ -7,8 +7,7 @@ html{
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
-		background-image: url('../img/all/escheresque_ste.png');
-		background-repeat: repeat;
+
 
 		#wrapper{
 			@include dimensions(100%);
@@ -17,6 +16,10 @@ html{
 			left: 0;
 			overflow: hidden;
 			text-align: center;
+			background-image: url('../img/all/kanekta-bg.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
 
 			@include breakpoint(max, 2) {
 				overflow-y: scroll;
