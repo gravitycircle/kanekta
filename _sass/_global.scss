@@ -133,12 +133,8 @@ html{
 					}
 
 					.introduction{
-						
 						margin: auto;
 						@include zoom(padding-top, 4rem);
-						@include breakpoint(min, 4) {
-							width: 70%;
-						}
 
 						p{
 							@include bodyCopy();
@@ -146,6 +142,10 @@ html{
 							margin: 0;
 							padding-top: 1.5rem;
 							padding-bottom: 1.5rem;
+
+							@include breakpoint(min, 4) {
+								text-align: left;
+							}
 
 							&.sign-up-button{
 								text-align: center;
