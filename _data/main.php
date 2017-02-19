@@ -78,35 +78,35 @@ function main($json = true) {
 		$output['meta'] = array(
 			'home' => array(
 				'title' => '',
-				'description' => 'Kanekta is an agency representing artisan brands from across the globe within the Canadian apparel industry. Our mission is to increase the availability of ethically-sourced products in the mainstream market by connecting and managing the relationship between producers and retailers.',
+				'description' => 'Kanekta is an online B2B marketplace that connects ethical fashion and lifestyle brands to retailers across the world.',
 				'og' => array(
 					'title' => 'Kanekta',
-					'description' => 'Kanekta is an agency representing artisan brands from across the globe within the Canadian apparel industry. Our mission is to increase the availability of ethically-sourced products in the mainstream market by connecting and managing the relationship between producers and retailers.',
+					'description' => 'Kanekta is an online B2B marketplace that connects ethical fashion and lifestyle brands to retailers across the world.',
 					'site_name' => 'Kanekta',
 					'url' => BASE,
-					'image' => BASE.'img/non-render/og-logo.jpg' 
+					'image' => BASE.'img/non-render/og-logo.jpg'
 				),
 				'tw' => array(
 					'card' => 'summary',
 					'title' => 'Kanekta',
-					'description' => 'Kanekta is an agency representing artisan brands from across the globe within the Canadian apparel industry. Our mission is to increase the availability of ethically-sourced products in the mainstream market by connecting and managing the relationship between producers and retailers.',
+					'description' => 'Kanekta is an online B2B marketplace that connects ethical fashion and lifestyle brands to retailers across the world.',
 					'image' => BASE.'img/non-render/og-logo.jpg'
 				)
 			),
 			'lost' => array(
 				'title' => '',
-				'description' => 'Kanekta is an agency representing artisan brands from across the globe within the Canadian apparel industry. Our mission is to increase the availability of ethically-sourced products in the mainstream market by connecting and managing the relationship between producers and retailers.',
+				'description' => 'Kanekta is an online B2B marketplace that connects ethical fashion and lifestyle brands to retailers across the world.',
 				'og' => array(
 					'title' => 'Kanekta',
-					'description' => 'Kanekta is an agency representing artisan brands from across the globe within the Canadian apparel industry. Our mission is to increase the availability of ethically-sourced products in the mainstream market by connecting and managing the relationship between producers and retailers.',
+					'description' => 'Kanekta is an online B2B marketplace that connects ethical fashion and lifestyle brands to retailers across the world.',
 					'site_name' => 'Kanekta',
 					'url' => BASE,
-					'image' => BASE.'img/non-render/og-logo.jpg' 
+					'image' => BASE.'img/non-render/og-logo.jpg'
 				),
 				'tw' => array(
 					'card' => 'summary',
 					'title' => 'Kanekta',
-					'description' => 'Kanekta is an agency representing artisan brands from across the globe within the Canadian apparel industry. Our mission is to increase the availability of ethically-sourced products in the mainstream market by connecting and managing the relationship between producers and retailers.',
+					'description' => 'Kanekta is an online B2B marketplace that connects ethical fashion and lifestyle brands to retailers across the world.',
 					'image' => BASE.'img/non-render/og-logo.jpg'
 				)
 			)
